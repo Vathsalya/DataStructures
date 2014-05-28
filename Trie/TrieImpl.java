@@ -46,25 +46,22 @@ public class TrieImpl implements Trie{
 	@Override
 	public boolean searchWord(String word) {
 		// TODO Auto-generated method stub
-
+System.out.println("SSSSSSSSSSSSSSSSSSSSSSS");
 		return searchWord(root,word);
 	}
 	public boolean searchWord(TrieNode t,String word){
-		
-		boolean b = false;
-		if(word.length()==1 && t!=null)
-			b = true;
-		
+		boolean found = false;
 		char c = word.charAt(0);
-		
 		TrieNode tNode = t.getNode(c);
 		if(tNode==null)
-			b = false;	
-			
-		if(word.length()>1){
+			return false;
+		if(word.length()==1 && tNode.isLastChar && tNode!=null)
+			found = true;
+		if(word.length()>1)
 			searchWord(t.getNode(c),word.substring(1));
-		}
-		return b;
+			
+		return found;
+		
 	}
 
 	@Override
