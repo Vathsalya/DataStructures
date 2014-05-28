@@ -1,5 +1,7 @@
 package com.search.trie;
 
+import java.util.ArrayList;
+
 public interface Trie {
 	/*
 	 * 26 for lower/upper case
@@ -9,7 +11,7 @@ public interface Trie {
 	/*
 	 * Get all the words starting with the prefix
 	 */
-	String[] getWords(char prefix);
+	ArrayList getWords(String prefix);
 	/*
 	 * Insert word in to trie
 	 */
@@ -34,5 +36,7 @@ public interface Trie {
 	 * Check if the character is last or not.
 	 */
 	boolean isLastChar(char prefix);
+	
+	void display();
 	
 }
